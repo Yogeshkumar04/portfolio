@@ -121,6 +121,4 @@ git push
 
 ---
 
-## 📜 License
 
-MIT License
