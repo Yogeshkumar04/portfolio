@@ -1,26 +1,90 @@
-@import "tailwindcss";
+/* @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #06111d;
+  --foreground: #eaf2ff;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at top left, rgba(34, 211, 238, 0.08), transparent 25%),
+    radial-gradient(circle at right top, rgba(103, 232, 249, 0.06), transparent 20%),
+    var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+img {
+  display: block;
+} */
+
+@import "tailwindcss";
+
+:root {
+  --background: #06111d;
+  --foreground: #eaf2ff;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* ===== BASE BODY ===== */
+body {
+  min-height: 100vh;
+  position: relative;
+
+  /* layered cinematic background */
+  background:
+    radial-gradient(circle at 12% 10%, rgba(34, 211, 238, 0.06), transparent 18%),
+    radial-gradient(circle at 85% 15%, rgba(103, 232, 249, 0.05), transparent 18%),
+    radial-gradient(circle at 55% 85%, rgba(34, 211, 238, 0.04), transparent 22%),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.015), rgba(255, 255, 255, 0)),
+    var(--background);
+
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+  overflow-x: hidden;
+}
+
+/* ===== SUBTLE NOISE TEXTURE (FORMLESS-LIKE DEPTH) ===== */
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+
+  /* ultra subtle noise / grain */
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.015'/%3E%3C/svg%3E");
+}
+
+/* ===== GLOBAL RESET ===== */
+* {
+  box-sizing: border-box;
+}
+
+img {
+  display: block;
+}
+
+/* ===== SMOOTH SCROLL SECTIONS ===== */
+section {
+  position: relative;
+  z-index: 2;
+}
+
+/* ===== OPTIONAL: SMOOTH TEXT RENDERING ===== */
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
