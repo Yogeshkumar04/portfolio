@@ -94,7 +94,7 @@ export default function ResumePage() {
           </div>
         </motion.div>
 
-        <motion.div
+        {/* <motion.div
           initial={{ opacity: 0, y: 28 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.12 }}
@@ -112,7 +112,7 @@ export default function ResumePage() {
             title="Resume PDF"
             className="h-[900px] w-full"
           />
-        </motion.div>
+        </motion.div> */}
       </section>
 
       <motion.section
